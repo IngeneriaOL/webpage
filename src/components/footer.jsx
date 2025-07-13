@@ -1,14 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Check, PhoneCall, Mails, Search } from "lucide-react";
 
 export default function Footer() {
     return (
         <div className="bg-red flex flex-col items-center justify-center">
-            <section>
-
-            </section>
-
             <section className="flex flex-col items-center justify-center p-4">
                 <article>
                     <Image

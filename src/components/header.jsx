@@ -58,9 +58,9 @@ export default function Header() {
 
     const serviciosButtons = [
         { name: "Catalogo Industrial", href: "/" },
-        { name: "Productos", href: "/" },
         { name: "Termocuplas", href: "/" },
         { name: "Automatización", href: "/" },
+        { name: "Productos", href: "/" },
     ];
 
     return (
@@ -105,9 +105,9 @@ export default function Header() {
                     </button>
 
                     <article className="text-black">
-                        <p className="flex items-center gap-2"><Check /> Soporte especializado</p>
-                        <p className="flex items-center gap-2"><PhoneCall /> 3168225865 | 3175731246</p>
-                        <p className="flex items-center gap-2"><Mails /> info@aingenieriaol.com</p>
+                        <p className="flex items-center gap-2"><Check className="font-bold" /> Soporte especializado</p>
+                        <p className="flex items-center gap-2"><PhoneCall className="font-bold" /> 3168225865 | 3175731246</p>
+                        <p className="flex items-center gap-2"><Mails className="font-bold" /> info@aingenieriaol.com</p>
                     </article>
                 </article>
             </section>
@@ -175,12 +175,12 @@ export default function Header() {
             )}
 
             {/* NAVBAR */}
-            <section className="hidden md:block">
-                <nav className="w-full h-16 p-2 border-red flex justify-center items-center">
+            <section className="hidden md:block mb-[3px]">
+                <nav className="w-full h-16 p-2 border-red-black flex justify-center items-center">
                     <ul className="flex justify-evenly items-center w-4/5">
                         {navButtons.map((button) => (
                             <li key={button.name}>
-                                <Link href={button.href} className="color-red font-semibold text-xl hover:text-gray-300 border-b-2 border-transparent hover:border-black pb-1 transition-all duration-300">
+                                <Link href={button.href} className="color-red font-semibold text-lg hover:text-gray-300 border-b-2 border-transparent hover:border-black pb-1 transition-all duration-300">
                                     {button.name}
                                 </Link>
                             </li>
@@ -192,7 +192,7 @@ export default function Header() {
                                 onClick={toggleServices}
                                 onMouseEnter={() => setIsServicesOpen(true)}
                                 onMouseLeave={() => setIsServicesOpen(false)}
-                                className="color-red font-semibold text-xl hover:text-gray-300 border-b-2 border-transparent hover:border-black transition-all duration-300 flex items-center gap-1"
+                                className="color-red font-semibold text-lg hover:text-gray-300 border-b-2 border-transparent hover:border-black transition-all duration-300 flex items-center gap-1"
                             >
                                 Servicios
                                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />

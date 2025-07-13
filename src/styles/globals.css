@@ -38,9 +38,13 @@ body {
   background-color: var(--whitesmoke);
 }
 
-.border-red {
+.border-red-black {
   border: 3px solid var(--red);
   box-shadow: 0 0 0 3px black;
+}
+
+.border-red {
+  border: 3px solid var(--red);
 }
 
 /* Animaciones para el modal móvil */

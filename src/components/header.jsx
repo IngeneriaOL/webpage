@@ -180,7 +180,7 @@ export default function Header() {
                     <ul className="flex justify-evenly items-center w-4/5">
                         {navButtons.map((button) => (
                             <li key={button.name}>
-                                <Link href={button.href} className="color-red text-xl hover:text-gray-300 border-b-2 border-transparent hover:border-black pb-1 transition-all duration-300">
+                                <Link href={button.href} className="color-red font-semibold text-xl hover:text-gray-300 border-b-2 border-transparent hover:border-black pb-1 transition-all duration-300">
                                     {button.name}
                                 </Link>
                             </li>
@@ -192,7 +192,7 @@ export default function Header() {
                                 onClick={toggleServices}
                                 onMouseEnter={() => setIsServicesOpen(true)}
                                 onMouseLeave={() => setIsServicesOpen(false)}
-                                className="color-red text-xl hover:text-gray-300 border-b-2 border-transparent hover:border-black transition-all duration-300 flex items-center gap-1"
+                                className="color-red font-semibold text-xl hover:text-gray-300 border-b-2 border-transparent hover:border-black transition-all duration-300 flex items-center gap-1"
                             >
                                 Servicios
                                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
@@ -203,7 +203,7 @@ export default function Header() {
                                 <div 
                                     onMouseEnter={() => setIsServicesOpen(true)}
                                     onMouseLeave={closeServices}
-                                    className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 min-w-48"
+                                    className="absolute top-full left-0 bg-white border border-gray-200 rounded-md shadow-lg z-50 min-w-48"
                                 >
                                     {serviciosButtons.map((service) => (
                                         <Link 

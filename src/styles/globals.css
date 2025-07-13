@@ -47,6 +47,25 @@ body {
   border: 3px solid var(--red);
 }
 
+
+/* Swiper styles */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ED1C24 !important;
+  font-weight: bold !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ED1C24 !important; 
+  opacity: 1 !important;
+}
+
+.swiper-pagination {
+  position: relative !important; 
+  bottom: -20px;
+  margin-top: 1rem; 
+}
+
 /* Animaciones para el modal móvil */
 .modal-enter {
   transform: translateX(-100%);

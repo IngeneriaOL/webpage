@@ -57,7 +57,7 @@ export default function Header() {
     ];
 
     const serviciosButtons = [
-        { name: "Catalogo Industrial", href: "/" },
+        { name: "Catalogo Industrial", href: "https://www.catalogoindustrial.co/" },
         { name: "Termocuplas", href: "/" },
         { name: "Automatización", href: "/" },
         { name: "Productos", href: "/" },
@@ -161,6 +161,7 @@ export default function Header() {
                                                 key={service.name}
                                                 href={service.href}
                                                 onClick={closeMobileMenu}
+                                                target={service.name === "Catalogo Industrial" ? "_blank" : undefined}
                                                 className="block py-2 px-3 text-gray-700 active:bg-gray-100 rounded transition-colors duration-200"
                                             >
                                                 {service.name}
@@ -210,6 +211,7 @@ export default function Header() {
                                             key={service.name}
                                             href={service.href}
                                             onClick={closeServices}
+                                            target={service.name === "Catalogo Industrial" ? "_blank" : undefined}
                                             className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-600 transition-colors duration-200"
                                         >
                                             {service.name}

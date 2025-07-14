@@ -1,6 +1,7 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -33,9 +34,10 @@ export default function ProductCarousel() {
                 navigation
                 pagination={{ clickable: true }}
                 loop
+                speed={1800}
                 className="swiper-container"
                 autoplay={{
-                    delay: 3000,
+                    delay: 2000,
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                 }}
@@ -48,7 +50,13 @@ export default function ProductCarousel() {
                 {products.map((product) => (
                     <SwiperSlide key={product.id}>
                         <div className="border rounded-md p-12 flex items-center justify-center bg-white">
-                            <img src={product.src} alt={product.alt} className="max-h-48 object-contain" />
+                            <Image
+                                src={product.src}
+                                alt={product.alt}
+                                className="max-h-48 object-contain"
+                                width={1000}
+                                height={1000}
+                            />
                         </div>
                     </SwiperSlide>
                 ))}

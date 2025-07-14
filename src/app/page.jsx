@@ -5,7 +5,9 @@ import { Aldrich, Agdasima } from "next/font/google";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import VirtualAssistant from "@/components/virtualAssistant";
-import ProductCarousel from "@/components/carruseles/productCarrusel";
+import ProductCarousel from "@/components/carruseles/productCaroussel";
+import BrandCarousel from "@/components/carruseles/trademarkCarousel";
+import ClientCarousel from "@/components/carruseles/clientCarousel";
 import { Clapperboard } from "lucide-react"
 
 const aldrich = Aldrich({
@@ -88,13 +90,13 @@ export default function Home() {
 
         {/* PRODUCTS CAROUSEL SECTION */}
         <section className="mb-12">
-          <h2 className="text-center color-red text-2xl font-bold mt-10 mb-6">NUESTROS PRODUCTOS</h2>
+          <h2 className={`text-center color-red text-3xl mt-10 mb-6 ${aldrich.className}`}>NUESTROS PRODUCTOS</h2>
 
           <ProductCarousel />
         </section>
 
         {/* AUTOMATIZATION SECTION */}
-        <section className="mb-20">
+        <section className="px-4">
           <article className={`${aldrich.className} flex flex-col items-center text-center mb-10`}>
             <p className="color-red text-6xl mb-4">Ingeniería OL</p>
             <p className="text-black">Sistemas automáticos confiables para tu industria.</p>
@@ -138,13 +140,13 @@ export default function Home() {
         </section>
 
         {/* SUSCRIPTION SECTION */}
-        <section className="parallax-section relative bg-[url('/images/suscription.jpg')] bg-cover bg-center h-screen flex flex-col items-center justify-center text-center gap-10">
+        <section className="my-20 parallax-section relative bg-[url('/images/suscription.jpg')] bg-cover bg-center h-screen flex flex-col items-center justify-center text-center gap-10">
           {/* Capa para reducir opacidad de la imagen */}
           <div className="absolute inset-0 bg-white/50 z-5"></div>
-          
+
           {/* Degradado rojo horizontal */}
           <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-600/30 z-10"></div>
-          
+
           {/* Contenido */}
           <div className="relative z-20 flex flex-col items-center gap-10">
             <p className="font-bold text-white">Ingeniería OL SAS</p>
@@ -153,6 +155,10 @@ export default function Home() {
             <article className="flex flex-col w-full items-center justify-center gap-6 md:flex-row md:gap-2">
               <input
                 type="email"
+                name="email"
+                id="email"
+                required
+                autoComplete="email"
                 className="px-4 py-4 w-4/5 text-sm text-gray-400 bg-white focus:outline-none focus:border-transparent md:w-2/5"
                 placeholder="Ingresa tu correo electrónico"
               />
@@ -167,8 +173,34 @@ export default function Home() {
           </div>
         </section>
 
+        {/* BRANDS SECTION */}
+        <section className="px-4">
+          <article className={`${aldrich.className} flex flex-col items-center text-center mb-10`}>
+            <p className="color-red text-3xl mb-4">NUESTRAS MARCAS</p>
+            <p className="text-black">Marcas aliadas que impulsan la innovación y la calidad.</p>
+          </article>
+
+          <BrandCarousel />
+        </section>
+
+        {/* CLIENTS SECTION */}
+        <section className="mt-20 relative bg-[url('/images/clients.jpg')] bg-cover bg-center h-screen flex flex-col items-center justify-center text-center gap-10">
+          
+          {/* Degradado rojo vertical */}
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-600/60 to-red-800 z-10"></div>
+          
+          {/* Contenido */}
+          <div className="relative z-20 flex flex-col items-center gap-16 w-full px-8">
+            <p className={`font-bold text-3xl ${aldrich.className} md:text-4xl lg:text-5xl`}>¿Qué dicen nuestros clientes?</p>
+            
+            <ClientCarousel />
+            
+            <p className={`font-bold ${aldrich.className}`}>INGENIERÍA OL SAS</p>
+          </div>
+        </section>
+
         {/* MAP SECTION */}
-        <section className="mt-12">
+        <section>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.940706035168!2d-74.07891062552733!3d4.6046397424838785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a07cb01b77%3A0xfa8fec13b1377cc9!2sAutomatizaci%C3%B3n%20e%20Ingenier%C3%ADa%20OL!5e0!3m2!1ses!2sco!4v1752374524121!5m2!1ses!2sco"
             width="100%"

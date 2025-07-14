@@ -351,3 +351,18 @@ body {
     text-shadow: 0 0 10px rgba(237, 28, 36, 0.5);
   }
 }
+
+/* Efecto parallax para la sección de suscripción */
+.parallax-section {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Compatibilidad móvil */
+@media (max-width: 768px) {
+  .parallax-section {
+    background-attachment: scroll; /* Desactivar en móviles por performance */
+  }
+}

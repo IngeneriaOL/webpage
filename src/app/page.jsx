@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { Aldrich } from "next/font/google";
+import { Aldrich, Agdasima } from "next/font/google";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import VirtualAssistant from "@/components/virtualAssistant";
@@ -12,6 +12,13 @@ const aldrich = Aldrich({
   variable: "--font-aldrich",
   subsets: ["latin"],
   weight: ["400"],
+});
+
+const agdasima = Agdasima({
+  variable: "--font-agdasima",
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
 });
 
 export default function Home() {
@@ -72,7 +79,7 @@ export default function Home() {
               <Link
                 href={service.link}
                 target={service.name === "CATÁLOGO INDUSTRIAL" ? "_blank" : undefined}
-                className="text-sm font-bold py-4 px-8 bg-black mt-6 hover:bg-gray-600 active:bg-gray-600 transition-all duration-300 md:text-xs lg:text-sm">
+                className="text-sm font-bold py-4 px-8 bg-black mt-6 hover:bg-gray-600 hover:scale-105 active:bg-gray-600 transition-all duration-300 md:text-xs lg:text-sm">
                 {service.name}
               </Link>
             </article>
@@ -87,7 +94,7 @@ export default function Home() {
         </section>
 
         {/* AUTOMATIZATION SECTION */}
-        <section>
+        <section className="mb-20">
           <article className={`${aldrich.className} flex flex-col items-center text-center mb-10`}>
             <p className="color-red text-6xl mb-4">Ingeniería OL</p>
             <p className="text-black">Sistemas automáticos confiables para tu industria.</p>
@@ -120,14 +127,44 @@ export default function Home() {
                   <div className="bubble bubble-3"></div>
                   <div className="bubble bubble-4"></div>
                   <div className="bubble bubble-5"></div>
-                  
+
                   {/* Contenido */}
-                  <Clapperboard className="color-red z-10 relative w-6 h-6 flex-shrink-0"/>
+                  <Clapperboard className="color-red z-10 relative w-6 h-6 flex-shrink-0" />
                   <p className="text-black z-10 relative text-xs leading-tight lg:text-sm">{video.title}</p>
                 </div>
               </div>
             ))}
           </article>
+        </section>
+
+        {/* SUSCRIPTION SECTION */}
+        <section className="parallax-section relative bg-[url('/images/suscription.jpg')] bg-cover bg-center h-screen flex flex-col items-center justify-center text-center gap-10">
+          {/* Capa para reducir opacidad de la imagen */}
+          <div className="absolute inset-0 bg-white/50 z-5"></div>
+          
+          {/* Degradado rojo horizontal */}
+          <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-600/30 z-10"></div>
+          
+          {/* Contenido */}
+          <div className="relative z-20 flex flex-col items-center gap-10">
+            <p className="font-bold text-white">Ingeniería OL SAS</p>
+            <p className={`font-bold text-4xl w-4/5 text-white ${agdasima.className} md:text-6xl lg:w-3/5`}>Déjanos tu email, suscríbete, estarás al tanto de los nuevos lanzamientos y futuros descuentos exclusivos</p>
+
+            <article className="flex flex-col w-full items-center justify-center gap-6 md:flex-row md:gap-2">
+              <input
+                type="email"
+                className="px-4 py-4 w-4/5 text-sm text-gray-400 bg-white focus:outline-none focus:border-transparent md:w-2/5"
+                placeholder="Ingresa tu correo electrónico"
+              />
+
+              <button
+                type="submit"
+                className="text-sm font-bold py-4 px-8 bg-black text-white hover:bg-gray-600 active:bg-gray-600 transition-all duration-300 md:text-xs lg:text-sm"
+              >
+                SUSCRIBIRME
+              </button>
+            </article>
+          </div>
         </section>
 
         {/* MAP SECTION */}

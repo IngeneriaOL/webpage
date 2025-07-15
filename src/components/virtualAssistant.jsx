@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function VirtualAssistant() {
     return (
-        <div className="fixed w-2/5 bottom-0 right-0 z-100 flex flex-col items-center justify-center p-4 sm:1/3 md:w-1/5 lg:w-[12%]">
+        <div className="fixed w-2/5 bottom-0 right-0 z-100 flex flex-col items-center justify-center p-4 sm:w-1/4 md:w-1/5 lg:w-[12%]">
             <article className="flex w-full flex-col items-center bg-red text-xs rounded-xl p-2 mb-2 border border-white xl:text-sm">
                 <p>¡Hola! Soy Jennifer</p>
                 <p>Tu asesora virtual</p>
@@ -12,7 +12,7 @@ export default function VirtualAssistant() {
             <article className="card w-24 h-auto aspect-square">
                 <div className="bg">
                     <Image
-                        src="/images/assistant.jpeg"
+                        src="/images/workers/assistant.webp"
                         alt="Virtual Assistant"
                         width={500}
                         height={300}

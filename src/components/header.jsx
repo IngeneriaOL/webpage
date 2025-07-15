@@ -67,20 +67,20 @@ export default function Header() {
         <div>
             <article className="flex justify-end gap-4 bg-red w-full h-auto p-2">
                 <Link href="/" className="flex items-center justify-center h-full">
-                    <Image src="/images/socialmedia/facebook.png" alt="Ingeniería OL Logo" width={512} height={512} className="h-6 w-auto" />
+                    <Image src="/images/socialmedia/facebook.webp" alt="Ingeniería OL Logo" width={512} height={512} className="h-6 w-auto" />
                 </Link>
                 <Link href="/" className="flex items-center justify-center h-full">
-                    <Image src="/images/socialmedia/instagram.png" alt="Ingeniería OL Logo" width={512} height={512} className="h-6 w-auto" />
+                    <Image src="/images/socialmedia/instagram.webp" alt="Ingeniería OL Logo" width={512} height={512} className="h-6 w-auto" />
                 </Link>
                 <Link href="/" className="flex items-center justify-center h-full">
-                    <Image src="/images/socialmedia/whatsapp.png" alt="Ingeniería OL Logo" width={512} height={512} className="h-6 w-auto" />
+                    <Image src="/images/socialmedia/whatsapp.webp" alt="Ingeniería OL Logo" width={512} height={512} className="h-6 w-auto" />
                 </Link>
             </article>
 
             <section className="flex flex-col items-center justify-evenly gap-2 md:flex-row">
                 <article>
                     <Image
-                        src="/images/logo.png"
+                        src="/images/logo.webp"
                         alt="Ingeniería OL Logo"
                         width={150}
                         height={50}
@@ -118,7 +118,7 @@ export default function Header() {
                     <div className={`fixed left-0 top-0 h-full w-full bg-white shadow-lg ${isClosing ? 'modal-exit' : 'modal-enter'}`}>
                         {/* Header del modal */}
                         <div className="flex justify-between items-center p-4 border-b">
-                            <Image src="/images/logo.png" alt="Ingeniería OL Logo" width={150} height={50} className="h-16 w-16" />
+                            <Image src="/images/logo.webp" alt="Ingeniería OL Logo" width={150} height={50} className="h-16 w-16" />
             
                             <button onClick={closeMobileMenu}>
                                 <X className="w-6 h-6 text-gray-600" />

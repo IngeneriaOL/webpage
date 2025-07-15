@@ -26,16 +26,16 @@ const agdasima = Agdasima({
 export default function Home() {
 
   const services = [
-    { name: "CATÁLOGO INDUSTRIAL", image: "/images/services/catalogo.jpg", link: "https://www.catalogoindustrial.co/" },
-    { name: "AUTOMATIZACIÓN", image: "/images/services/automatizacion.jpg", link: "/automatizacion" },
-    { name: "TERMOCUPLAS", image: "/images/services/termocuplas.jpg", link: "/termocuplas" },
+    { name: "CATÁLOGO INDUSTRIAL", image: "/images/services/catalogo.webp", link: "https://www.catalogoindustrial.co/" },
+    { name: "AUTOMATIZACIÓN", image: "/images/services/automatizacion.webp", link: "/automatizacion" },
+    { name: "TERMOCUPLAS", image: "/images/services/termocuplas.webp", link: "/termocuplas" },
   ];
 
   const videos = [
-    { title: "Automatización maquina termoformadora", src: "/videos/VIDEO-1.mp4" },
-    { title: "Control de bombas unicentro girardot", src: "/videos/VIDEO-2.mp4" },
-    { title: "Dosificador automatizado", src: "/videos/VIDEO-3.mp4" },
-    { title: "Maquina de seriografia 4 colores", src: "/videos/VIDEO-4.mp4" },
+    { title: "Automatización maquina termoformadora", src: "/videos/VIDEO-1.webm" },
+    { title: "Control de bombas unicentro girardot", src: "/videos/VIDEO-2.webm" },
+    { title: "Dosificador automatizado", src: "/videos/VIDEO-3.webm" },
+    { title: "Maquina de seriografia 4 colores", src: "/videos/VIDEO-4.webm" },
   ];
 
 
@@ -49,7 +49,7 @@ export default function Home() {
 
       <main>
         {/* BANNER SECTION */}
-        <section className="relative bg-[url('/images/banner.jpg')] bg-cover bg-center w-full h-[40rem] flex items-center justify-center">
+        <section className="relative bg-[url('/images/backgrounds/banner.webp')] bg-cover bg-center w-full h-[40rem] flex items-center justify-center">
           {/* VIDEO LAYER */}
           <video
             autoPlay
@@ -58,7 +58,7 @@ export default function Home() {
             playsInline
             className="absolute top-0 left-0 w-full h-full opacity-30 object-cover z-10 pointer-events-none"
           >
-            <source src="/videos/banner.mp4" type="video/mp4" />
+            <source src="/videos/banner.webm" type="video/webm" />
             Tu navegador no soporta videos HTML5.
           </video>
 
@@ -140,7 +140,7 @@ export default function Home() {
         </section>
 
         {/* SUSCRIPTION SECTION */}
-        <section className="my-20 parallax-section relative bg-[url('/images/suscription.jpg')] bg-cover bg-center h-screen flex flex-col items-center justify-center text-center gap-10">
+        <section className="my-20 parallax-section relative bg-[url('/images/backgrounds/suscription.webp')] bg-cover bg-center h-screen flex flex-col items-center justify-center text-center gap-10">
           {/* Capa para reducir opacidad de la imagen */}
           <div className="absolute inset-0 bg-white/50 z-5"></div>
 
@@ -184,7 +184,7 @@ export default function Home() {
         </section>
 
         {/* CLIENTS SECTION */}
-        <section className="mt-20 relative bg-[url('/images/clients.jpg')] bg-cover bg-center h-screen flex flex-col items-center justify-center text-center gap-10">
+        <section className="mt-20 relative bg-[url('/images/backgrounds/clients.webp')] bg-cover bg-center h-screen flex flex-col items-center justify-center text-center gap-10">
           
           {/* Degradado rojo vertical */}
           <div className="absolute inset-0 bg-gradient-to-b from-gray-600/60 to-red-800 z-10"></div>

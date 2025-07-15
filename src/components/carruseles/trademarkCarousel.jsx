@@ -5,15 +5,15 @@ import Image from "next/image";
 import "swiper/css";
 
 const trademarks = [
-    { id: 1, src: "/images/trademarks/trademark-1.png", alt: "Marca comercial 1" },
-    { id: 2, src: "/images/trademarks/trademark-2.png", alt: "Marca comercial 2" },
-    { id: 3, src: "/images/trademarks/trademark-3.png", alt: "Marca comercial 3" },
-    { id: 4, src: "/images/trademarks/trademark-4.png", alt: "Marca comercial 4" },
-    { id: 5, src: "/images/trademarks/trademark-5.png", alt: "Marca comercial 5" },
-    { id: 6, src: "/images/trademarks/trademark-6.png", alt: "Marca comercial 6" },
-    { id: 7, src: "/images/trademarks/trademark-7.png", alt: "Marca comercial 7" },
-    { id: 8, src: "/images/trademarks/trademark-8.png", alt: "Marca comercial 8" },
-    { id: 9, src: "/images/trademarks/trademark-9.png", alt: "Marca comercial 9" },
+    { id: 1, src: "/images/trademarks/trademark-1.webp", alt: "Marca comercial 1" },
+    { id: 2, src: "/images/trademarks/trademark-2.webp", alt: "Marca comercial 2" },
+    { id: 3, src: "/images/trademarks/trademark-3.webp", alt: "Marca comercial 3" },
+    { id: 4, src: "/images/trademarks/trademark-4.webp", alt: "Marca comercial 4" },
+    { id: 5, src: "/images/trademarks/trademark-5.webp", alt: "Marca comercial 5" },
+    { id: 6, src: "/images/trademarks/trademark-6.webp", alt: "Marca comercial 6" },
+    { id: 7, src: "/images/trademarks/trademark-7.webp", alt: "Marca comercial 7" },
+    { id: 8, src: "/images/trademarks/trademark-8.webp", alt: "Marca comercial 8" },
+    { id: 9, src: "/images/trademarks/trademark-9.webp", alt: "Marca comercial 9" },
 ];
 
 export default function TrademarkCarousel() {

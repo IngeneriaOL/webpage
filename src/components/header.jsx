@@ -2,81 +2,114 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Check, PhoneCall, Mails, Search, Menu, ChevronDown, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
+
+// Mover datos estáticos fuera del componente
+const NAV_BUTTONS = [
+    { name: "Inicio", href: "/" },
+    { name: "Quienes Somos", href: "/" },
+    { name: "Nuestras Marcas", href: "/" },
+    { name: "Proyectos", href: "/" },
+];
+
+const SERVICIOS_BUTTONS = [
+    { name: "Catalogo Industrial", href: "https://www.catalogoindustrial.co/" },
+    { name: "Termocuplas", href: "/" },
+    { name: "Automatización", href: "/" },
+    { name: "Productos", href: "/" },
+];
+
+const SOCIAL_LINKS = [
+    { src: "/images/socialmedia/facebook.webp", alt: "Facebook" },
+    { src: "/images/socialmedia/instagram.webp", alt: "Instagram" },
+    { src: "/images/socialmedia/whatsapp.webp", alt: "WhatsApp" },
+];
+
+// Componente optimizado para links sociales
+const SocialLink = memo(({ src, alt }) => (
+    <Link href="/" className="flex items-center justify-center h-full">
+        <Image 
+            src={src} 
+            alt={alt} 
+            width={24} 
+            height={24} 
+            className="h-6 w-auto" 
+        />
+    </Link>
+));
+
+// Componente optimizado para navegación
+const NavItem = memo(({ button, onClick }) => (
+    <li>
+        <Link 
+            href={button.href} 
+            onClick={onClick}
+            className="block py-2 px-3 color-red text-lg active:bg-gray-100 rounded transition-colors duration-200"
+        >
+            {button.name}
+        </Link>
+    </li>
+));
+
+// Componente optimizado para servicios dropdown
+const ServiceItem = memo(({ service, onClick }) => (
+    <Link 
+        href={service.href}
+        onClick={onClick}
+        target={service.name === "Catalogo Industrial" ? "_blank" : undefined}
+        className="block py-2 px-3 text-gray-700 active:bg-gray-100 rounded transition-colors duration-200"
+    >
+        {service.name}
+    </Link>
+));
 
 export default function Header() {
     const [isServicesOpen, setIsServicesOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
 
-    // Efecto para desactivar el scroll cuando el modal esté abierto
+    // Optimizar useEffect con cleanup más eficiente
     useEffect(() => {
-        if (isMobileMenuOpen) {
-            // Desactivar scroll
-            document.body.style.overflow = 'hidden';
-        } else {
-            // Reactivar scroll
-            document.body.style.overflow = 'unset';
-        }
-
-        // Cleanup function para reactivar el scroll si el componente se desmonta
+        document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
+        
         return () => {
             document.body.style.overflow = 'unset';
         };
     }, [isMobileMenuOpen]);
 
-    // Función para alternar el estado del dropdown
-    const toggleServices = () => {
-        setIsServicesOpen(!isServicesOpen);
-    };
+    // Memoizar funciones con useCallback
+    const toggleServices = useCallback(() => {
+        setIsServicesOpen(prev => !prev);
+    }, []);
 
-    // Función para cerrar el dropdown
-    const closeServices = () => {
+    const closeServices = useCallback(() => {
         setIsServicesOpen(false);
-    };
+    }, []);
 
-    // Función para alternar el menú móvil
-    const toggleMobileMenu = () => {
-        setIsMobileMenuOpen(!isMobileMenuOpen);
-    };
+    const toggleMobileMenu = useCallback(() => {
+        setIsMobileMenuOpen(prev => !prev);
+    }, []);
 
-    // Función para cerrar el menú móvil con animación
-    const closeMobileMenu = () => {
+    const closeMobileMenu = useCallback(() => {
         setIsClosing(true);
-        setTimeout(() => {
+        const timeoutId = setTimeout(() => {
             setIsMobileMenuOpen(false);
             setIsClosing(false);
         }, 300);
-    };
-
-    const navButtons = [
-        { name: "Inicio", href: "/" },
-        { name: "Quienes Somos", href: "/" },
-        { name: "Nuestras Marcas", href: "/" },
-        { name: "Proyectos", href: "/" },
-    ];
-
-    const serviciosButtons = [
-        { name: "Catalogo Industrial", href: "https://www.catalogoindustrial.co/" },
-        { name: "Termocuplas", href: "/" },
-        { name: "Automatización", href: "/" },
-        { name: "Productos", href: "/" },
-    ];
+        
+        return () => clearTimeout(timeoutId);
+    }, []);
 
     return (
         <div>
+            {/* Social Media Bar */}
             <article className="flex justify-end gap-4 bg-red w-full h-auto p-2">
-                <Link href="/" className="flex items-center justify-center h-full">
-                    <Image src="/images/socialmedia/facebook.webp" alt="Ingeniería OL Logo" width={512} height={512} className="h-6 w-auto" />
-                </Link>
-                <Link href="/" className="flex items-center justify-center h-full">
-                    <Image src="/images/socialmedia/instagram.webp" alt="Ingeniería OL Logo" width={512} height={512} className="h-6 w-auto" />
-                </Link>
-                <Link href="/" className="flex items-center justify-center h-full">
-                    <Image src="/images/socialmedia/whatsapp.webp" alt="Ingeniería OL Logo" width={512} height={512} className="h-6 w-auto" />
-                </Link>
+                {SOCIAL_LINKS.map((link, index) => (
+                    <SocialLink key={index} {...link} />
+                ))}
             </article>
 
+            {/* Main Header */}
             <section className="flex flex-col items-center justify-evenly gap-2 md:flex-row">
                 <article>
                     <Image
@@ -85,11 +118,12 @@ export default function Header() {
                         width={150}
                         height={50}
                         className="h-full w-auto"
+                        priority
                     />
                 </article>
 
                 <article className="w-[90%] md:w-1/3">
-                    <div className="relative flex items-center ">
+                    <div className="relative flex items-center">
                         <input
                             type="text"
                             placeholder="Buscar..."
@@ -100,7 +134,7 @@ export default function Header() {
                 </article>
 
                 <article className="flex justify-between w-full items-center p-[5%] md:p-0 md:w-auto">
-                    <button onClick={toggleMobileMenu}>
+                    <button onClick={toggleMobileMenu} aria-label="Abrir menú">
                         <Menu className="w-12 h-12 text-black md:hidden" />
                     </button>
 
@@ -112,43 +146,36 @@ export default function Header() {
                 </article>
             </section>
 
-            {/* Modal de menú móvil */}
+            {/* Mobile Menu Modal */}
             {isMobileMenuOpen && (
                 <div className={`fixed inset-0 w-full z-50 md:hidden ${isClosing ? 'overlay-exit' : 'overlay-enter'}`}>
                     <div className={`fixed left-0 top-0 h-full w-full bg-white shadow-lg ${isClosing ? 'modal-exit' : 'modal-enter'}`}>
-                        {/* Header del modal */}
                         <div className="flex justify-between items-center p-4 border-b">
-                            <Image src="/images/logo.webp" alt="Ingeniería OL Logo" width={150} height={50} className="h-16 w-16" />
-            
-                            <button onClick={closeMobileMenu}>
+                            <Image 
+                                src="/images/logo.webp" 
+                                alt="Ingeniería OL Logo" 
+                                width={64} 
+                                height={64} 
+                                className="h-16 w-16" 
+                            />
+                            <button onClick={closeMobileMenu} aria-label="Cerrar menú">
                                 <X className="w-6 h-6 text-gray-600" />
                             </button>
                         </div>
 
-                        {/* Contenido del menú */}
                         <div className="p-4">
-                            {/* Navegación principal */}
-                            <nav className="mb-6">
+                            <nav className="mb-6 font-bold">
                                 <ul className="space-y-3">
-                                    {navButtons.map((button) => (
-                                        <li key={button.name}>
-                                            <Link 
-                                                href={button.href} 
-                                                onClick={closeMobileMenu}
-                                                className="block py-2 px-3 color-red text-lg active:bg-gray-100 rounded transition-colors duration-200"
-                                            >
-                                                {button.name}
-                                            </Link>
-                                        </li>
+                                    {NAV_BUTTONS.map((button) => (
+                                        <NavItem key={button.name} button={button} onClick={closeMobileMenu} />
                                     ))}
                                 </ul>
                             </nav>
 
-                            {/* Servicios */}
                             <div className="border-t pt-4">
                                 <button 
                                     onClick={toggleServices}
-                                    className="w-full flex justify-between items-center py-2 px-3 color-red text-lg active:bg-gray-100 rounded transition-colors duration-200"
+                                    className="w-full flex justify-between font-bold items-center py-2 px-3 color-red text-lg active:bg-gray-100 rounded transition-colors duration-200"
                                 >
                                     Servicios
                                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
@@ -156,16 +183,8 @@ export default function Header() {
                                 
                                 {isServicesOpen && (
                                     <div className="ml-4 mt-2 space-y-2">
-                                        {serviciosButtons.map((service) => (
-                                            <Link 
-                                                key={service.name}
-                                                href={service.href}
-                                                onClick={closeMobileMenu}
-                                                target={service.name === "Catalogo Industrial" ? "_blank" : undefined}
-                                                className="block py-2 px-3 text-gray-700 active:bg-gray-100 rounded transition-colors duration-200"
-                                            >
-                                                {service.name}
-                                            </Link>
+                                        {SERVICIOS_BUTTONS.map((service) => (
+                                            <ServiceItem key={service.name} service={service} onClick={closeMobileMenu} />
                                         ))}
                                     </div>
                                 )}
@@ -175,11 +194,11 @@ export default function Header() {
                 </div>
             )}
 
-            {/* NAVBAR */}
+            {/* Desktop Navigation */}
             <section className="hidden md:block mb-[3px]">
                 <nav className="w-full h-16 p-2 border-red-black flex justify-center items-center">
                     <ul className="flex justify-evenly items-center w-4/5">
-                        {navButtons.map((button) => (
+                        {NAV_BUTTONS.map((button) => (
                             <li key={button.name}>
                                 <Link href={button.href} className="color-red font-semibold text-lg hover:text-gray-300 border-b-2 border-transparent hover:border-black pb-1 transition-all duration-300">
                                     {button.name}
@@ -187,7 +206,6 @@ export default function Header() {
                             </li>
                         ))}
                         
-                        {/* Dropdown Servicios */}
                         <li className="relative">
                             <button 
                                 onClick={toggleServices}
@@ -199,14 +217,13 @@ export default function Header() {
                                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
                             </button>
                             
-                            {/* Dropdown Menu */}
                             {isServicesOpen && (
                                 <div 
                                     onMouseEnter={() => setIsServicesOpen(true)}
                                     onMouseLeave={closeServices}
                                     className="absolute top-full left-0 bg-white border border-gray-200 rounded-md shadow-lg z-50 min-w-48"
                                 >
-                                    {serviciosButtons.map((service) => (
+                                    {SERVICIOS_BUTTONS.map((service) => (
                                         <Link 
                                             key={service.name}
                                             href={service.href}

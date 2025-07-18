@@ -2,13 +2,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Aldrich, Agdasima } from "next/font/google";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import VirtualAssistant from "@/components/virtualAssistant";
-import ProductCarousel from "@/components/carruseles/productCaroussel";
-import BrandCarousel from "@/components/carruseles/trademarkCarousel";
-import ClientCarousel from "@/components/carruseles/clientCarousel";
-import { Clapperboard } from "lucide-react"
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import VirtualAssistant from "@/components/VirtualAssistant";
+import ProductCarousel from "@/components/carruseles/ProductCaroussel";
+import BrandCarousel from "@/components/carruseles/TrademarkCarousel";
+import ClientCarousel from "@/components/carruseles/ClientCarousel";
+import WorkCarousel from "@/components/carruseles/WorkCarousel";
+import Button from "@/components/ui/Button";
+import { Clapperboard, Globe } from "lucide-react"
 
 const aldrich = Aldrich({
   variable: "--font-aldrich",
@@ -40,7 +42,7 @@ export default function Home() {
 
 
   return (
-    <div className="">
+    <div>
       {/* VIRTUAL ASSISTANT COMPONENT */}
       <VirtualAssistant />
 
@@ -56,7 +58,7 @@ export default function Home() {
             muted
             loop
             playsInline
-            className="absolute top-0 left-0 w-full h-full opacity-30 object-cover z-10 pointer-events-none"
+            className="absolute top-0 left-0 w-full h-full opacity-20 object-cover z-10 pointer-events-none"
           >
             <source src="/videos/banner.webm" type="video/webm" />
             Tu navegador no soporta videos HTML5.
@@ -73,17 +75,21 @@ export default function Home() {
           </article>
         </section>
 
+        {/* SERVICES SECTION */}
         <section className="flex flex-col md:flex-row justify-center gap-6 mt-14">
           {services.map((service, index) => (
             <article key={index} className="flex flex-col items-center justify-center p-8">
-              <Image src={service.image} alt={service.name} width={640} height={640} className="object-contain rounded-full w-3/5 h-auto aspect-square sm:w-2/5 md:w-3/5" />
+              <Image src={service.image} alt={service.name} width={640} height={640} className="object-contain shadow-2xl rounded-full w-3/5 h-auto aspect-square sm:w-2/5 md:w-3/5" />
 
-              <Link
+              <Button
                 href={service.link}
                 target={service.name === "CATÁLOGO INDUSTRIAL" ? "_blank" : undefined}
-                className="text-sm font-bold py-4 px-8 bg-black mt-6 hover:bg-gray-600 hover:scale-105 active:bg-gray-600 transition-all duration-300 md:text-xs lg:text-sm">
+                variant="primary"
+                size="medium"
+                className="mt-6"
+              >
                 {service.name}
-              </Link>
+              </Button>
             </article>
           ))}
         </section>
@@ -173,6 +179,23 @@ export default function Home() {
           </div>
         </section>
 
+        {/* WORKS SECTION */}
+        <section className="mb-20 px-4 md:flex md:flex-row-reverse items-center md:px-[10%] md:gap-10 lg:px-[15%] lg:gap-20">
+          <article className="flex flex-col items-center text-center mb-10 text-black md:mb-0 md:items-start md:text-left">
+            <div className="color-red font-bold flex items-center justify-center gap-2">
+              <Globe />
+              <p>ELÉCTRICOS</p>
+            </div>
+
+            <p className={`${aldrich.className} text-3xl my-4 lg:text-5xl`}>Innovación y eficiencia para tus procesos industriales</p>
+            <p className="lg:text-lg">Ingeniería OL; calidad y precisión en cada solución.</p>
+          </article>
+
+          <article className="w-full md:w-1/2 aspect-[3/4] lg:w-2/5">
+            <WorkCarousel />
+          </article>
+        </section>
+
         {/* BRANDS SECTION */}
         <section className="px-4">
           <article className={`${aldrich.className} flex flex-col items-center text-center mb-10`}>
@@ -185,16 +208,16 @@ export default function Home() {
 
         {/* CLIENTS SECTION */}
         <section className="mt-20 relative bg-[url('/images/backgrounds/clients.webp')] bg-cover bg-center h-screen flex flex-col items-center justify-center text-center gap-10">
-          
+
           {/* Degradado rojo vertical */}
           <div className="absolute inset-0 bg-gradient-to-b from-gray-600/60 to-red-800 z-10"></div>
-          
+
           {/* Contenido */}
           <div className="relative z-20 flex flex-col items-center gap-16 w-full px-8">
             <p className={`font-bold text-3xl ${aldrich.className} md:text-4xl lg:text-5xl`}>¿Qué dicen nuestros clientes?</p>
-            
+
             <ClientCarousel />
-            
+
             <p className={`font-bold ${aldrich.className}`}>INGENIERÍA OL SAS</p>
           </div>
         </section>

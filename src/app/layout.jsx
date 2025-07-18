@@ -11,9 +11,6 @@ const montserrat = Montserrat({
 export const metadata = {
   title: "Ingeniería OL",
   description: "Ingeniería OL - Innovación y Tecnología",
-  icons: {
-    icon: '/images/favicon.png',
-  },
 };
 
 export default function RootLayout({ children }) {

@@ -7,16 +7,16 @@ import { useState, useEffect, useCallback, memo } from "react";
 // Mover datos estáticos fuera del componente
 const NAV_BUTTONS = [
     { name: "Inicio", href: "/" },
-    { name: "Quienes Somos", href: "/" },
-    { name: "Nuestras Marcas", href: "/" },
-    { name: "Proyectos", href: "/" },
+    { name: "Quienes Somos", href: "/about" },
+    { name: "Nuestras Marcas", href: "/trademarks" },
+    { name: "Proyectos", href: "/projects" },
 ];
 
 const SERVICIOS_BUTTONS = [
     { name: "Catalogo Industrial", href: "https://www.catalogoindustrial.co/" },
-    { name: "Termocuplas", href: "/" },
-    { name: "Automatización", href: "/" },
-    { name: "Productos", href: "/" },
+    { name: "Termocuplas", href: "/thermocouples" },
+    { name: "Automatización", href: "/automation" },
+    { name: "Productos", href: "/products" },
 ];
 
 const SOCIAL_LINKS = [

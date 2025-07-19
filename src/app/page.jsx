@@ -2,14 +2,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Aldrich, Agdasima } from "next/font/google";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import VirtualAssistant from "@/components/VirtualAssistant";
-import ProductCarousel from "@/components/carruseles/ProductCaroussel";
-import BrandCarousel from "@/components/carruseles/TrademarkCarousel";
-import ClientCarousel from "@/components/carruseles/ClientCarousel";
-import WorkCarousel from "@/components/carruseles/WorkCarousel";
-import Button from "@/components/ui/Button";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import VirtualAssistant from "@/components/virtualAssistant";
+import ProductCarousel from "@/components/carousels/productCarousel";
+import BrandCarousel from "@/components/carousels/trademarkCarousel";
+import ClientCarousel from "@/components/carousels/clientCarousel";
+import WorkCarousel from "@/components/carousels/workCarousel";
+import Button from "@/components/ui/button";
 import { Clapperboard, Globe } from "lucide-react"
 
 const aldrich = Aldrich({

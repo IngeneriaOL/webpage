@@ -2,15 +2,32 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Aldrich, Agdasima } from "next/font/google";
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+import { Clapperboard, Globe } from "lucide-react"
+
+// Imports estáticos que sabemos que funcionan
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import VirtualAssistant from "@/components/virtualAssistant";
 import ProductCarousel from "@/components/carousels/productCarousel";
 import BrandCarousel from "@/components/carousels/trademarkCarousel";
-import ClientCarousel from "@/components/carousels/clientCarousel";
-import WorkCarousel from "@/components/carousels/workCarousel";
-import Button from "@/components/ui/button";
-import { Clapperboard, Globe } from "lucide-react"
+
+// Imports dinámicos para los problemáticos
+const ClientCarousel = dynamic(() => import("@/components/carousels/clientCarousel"), {
+  loading: () => <div className="h-48 bg-gray-200 animate-pulse rounded-lg flex items-center justify-center">Cargando clientes...</div>,
+  ssr: false
+});
+
+const WorkCarousel = dynamic(() => import("@/components/carousels/workCarousel"), {
+  loading: () => <div className="h-64 bg-gray-200 animate-pulse rounded-lg flex items-center justify-center">Cargando trabajos...</div>,
+  ssr: false
+});
+
+const Button = dynamic(() => import("@/components/ui/button"), {
+  loading: () => <div className="inline-block bg-gray-300 px-8 py-4 rounded-xl">Cargando...</div>,
+  ssr: false
+});
 
 const aldrich = Aldrich({
   variable: "--font-aldrich",
@@ -26,7 +43,6 @@ const agdasima = Agdasima({
 });
 
 export default function Home() {
-
   const services = [
     { name: "CATÁLOGO INDUSTRIAL", image: "/images/services/catalogo.webp", link: "https://www.catalogoindustrial.co/" },
     { name: "AUTOMATIZACIÓN", image: "/images/services/automatizacion.webp", link: "/automatizacion" },
@@ -39,7 +55,6 @@ export default function Home() {
     { title: "Dosificador automatizado", src: "/videos/VIDEO-3.webm" },
     { title: "Maquina de seriografia 4 colores", src: "/videos/VIDEO-4.webm" },
   ];
-
 
   return (
     <div>
@@ -81,15 +96,17 @@ export default function Home() {
             <article key={index} className="flex flex-col items-center justify-center p-8">
               <Image src={service.image} alt={service.name} width={640} height={640} className="object-contain shadow-2xl rounded-full w-3/5 h-auto aspect-square sm:w-2/5 md:w-3/5" />
 
-              <Button
-                href={service.link}
-                target={service.name === "CATÁLOGO INDUSTRIAL" ? "_blank" : undefined}
-                variant="primary"
-                size="medium"
-                className="mt-6"
-              >
-                {service.name}
-              </Button>
+              <Suspense fallback={<div className="mt-6 inline-block bg-gray-300 px-8 py-4 rounded-xl">Cargando...</div>}>
+                <Button
+                  href={service.link}
+                  target={service.name === "CATÁLOGO INDUSTRIAL" ? "_blank" : undefined}
+                  variant="primary"
+                  size="medium"
+                  className="mt-6"
+                >
+                  {service.name}
+                </Button>
+              </Suspense>
             </article>
           ))}
         </section>
@@ -192,7 +209,9 @@ export default function Home() {
           </article>
 
           <article className="w-full md:w-1/2 aspect-[3/4] lg:w-2/5">
-            <WorkCarousel />
+            <Suspense fallback={<div className="w-full h-full bg-gray-200 animate-pulse rounded-lg"></div>}>
+              <WorkCarousel />
+            </Suspense>
           </article>
         </section>
 
@@ -214,11 +233,13 @@ export default function Home() {
 
           {/* Contenido */}
           <div className="relative z-20 flex flex-col items-center gap-16 w-full px-8">
-            <p className={`font-bold text-3xl ${aldrich.className} md:text-4xl lg:text-5xl`}>¿Qué dicen nuestros clientes?</p>
+            <p className={`font-bold text-3xl text-white ${aldrich.className} md:text-4xl lg:text-5xl`}>¿Qué dicen nuestros clientes?</p>
 
-            <ClientCarousel />
+            <Suspense fallback={<div className="h-48 bg-white/20 animate-pulse rounded-lg"></div>}>
+              <ClientCarousel />
+            </Suspense>
 
-            <p className={`font-bold ${aldrich.className}`}>INGENIERÍA OL SAS</p>
+            <p className={`font-bold text-white ${aldrich.className}`}>INGENIERÍA OL SAS</p>
           </div>
         </section>
 

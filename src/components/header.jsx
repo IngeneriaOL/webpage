@@ -10,12 +10,11 @@ const NAV_BUTTONS = [
     { name: "Quienes Somos", href: "/about" },
     { name: "Nuestras Marcas", href: "/trademarks" },
     { name: "Proyectos", href: "/projects" },
+    { name: "Catalogo Industrial", href: "https://www.catalogoindustrial.co/" },
 ];
 
 const SERVICIOS_BUTTONS = [
-    { name: "Catalogo Industrial", href: "https://www.catalogoindustrial.co/" },
     { name: "Termocuplas", href: "/thermocouples" },
-    { name: "Automatización", href: "/automation" },
     { name: "Productos", href: "/products" },
 ];
 

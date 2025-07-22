@@ -9,7 +9,7 @@ import ProductCarousel from "@/components/carousels/productCarousel";
 import BrandCarousel from "@/components/carousels/trademarkCarousel";
 import ClientCarousel from "@/components/carousels/clientCarousel";
 import WorkCarousel from "@/components/carousels/workCarousel";
-import Button from "@/components/ui/button";
+/* import Button from "@/components/ui/button"; */
 import { Clapperboard, Globe } from "lucide-react"
 
 const aldrich = Aldrich({
@@ -81,7 +81,7 @@ export default function Home() {
             <article key={index} className="flex flex-col items-center justify-center p-8">
               <Image src={service.image} alt={service.name} width={640} height={640} className="object-contain shadow-2xl rounded-full w-3/5 h-auto aspect-square sm:w-2/5 md:w-3/5" />
 
-              <Button
+              {/* <Button
                 href={service.link}
                 target={service.name === "CATÁLOGO INDUSTRIAL" ? "_blank" : undefined}
                 variant="primary"
@@ -89,7 +89,7 @@ export default function Home() {
                 className="mt-6"
               >
                 {service.name}
-              </Button>
+              </Button> */}
             </article>
           ))}
         </section>

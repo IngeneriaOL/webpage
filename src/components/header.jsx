@@ -4,13 +4,13 @@ import Link from "next/link";
 import { Check, PhoneCall, Mails, Search, Menu, ChevronDown, X } from "lucide-react";
 import { useState, useEffect, useCallback, memo } from "react";
 
-// Mover datos estáticos fuera del componente
+// Static data outside component
 const NAV_BUTTONS = [
     { name: "Inicio", href: "/" },
     { name: "Quienes Somos", href: "/about" },
     { name: "Nuestras Marcas", href: "/trademarks" },
     { name: "Proyectos", href: "/projects" },
-    { name: "Catalogo Industrial", href: "https://www.catalogoindustrial.co/" },
+    { name: "Catálogo Industrial", href: "https://www.catalogoindustrial.co/" },
 ];
 
 const SERVICIOS_BUTTONS = [
@@ -24,25 +24,26 @@ const SOCIAL_LINKS = [
     { src: "/images/socialmedia/whatsapp.webp", alt: "WhatsApp" },
 ];
 
-// Componente optimizado para links sociales
+// Optimized social link component
 const SocialLink = memo(({ src, alt }) => (
     <Link href="/" className="flex items-center justify-center h-full">
-        <Image 
-            src={src} 
-            alt={alt} 
-            width={24} 
-            height={24} 
-            className="h-6 w-auto" 
+        <Image
+            src={src}
+            alt={alt}
+            width={24}
+            height={24}
+            className="h-6 w-auto"
         />
     </Link>
 ));
 
-// Componente optimizado para navegación
+// Optimized navigation component
 const NavItem = memo(({ button, onClick }) => (
     <li>
-        <Link 
-            href={button.href} 
+        <Link
+            href={button.href}
             onClick={onClick}
+            target={button.name === "Catálogo Industrial" ? "_blank" : undefined}
             className="block py-2 px-3 color-red text-lg active:bg-gray-100 rounded transition-colors duration-200"
         >
             {button.name}
@@ -50,9 +51,9 @@ const NavItem = memo(({ button, onClick }) => (
     </li>
 ));
 
-// Componente optimizado para servicios dropdown
+// Optimized services dropdown component
 const ServiceItem = memo(({ service, onClick }) => (
-    <Link 
+    <Link
         href={service.href}
         onClick={onClick}
         target={service.name === "Catalogo Industrial" ? "_blank" : undefined}
@@ -67,16 +68,16 @@ export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
 
-    // Optimizar useEffect con cleanup más eficiente
+    // Prevent body scroll when mobile menu is open
     useEffect(() => {
         document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
-        
+
         return () => {
             document.body.style.overflow = 'unset';
         };
     }, [isMobileMenuOpen]);
 
-    // Memoizar funciones con useCallback
+    // Memoized functions
     const toggleServices = useCallback(() => {
         setIsServicesOpen(prev => !prev);
     }, []);
@@ -95,20 +96,20 @@ export default function Header() {
             setIsMobileMenuOpen(false);
             setIsClosing(false);
         }, 300);
-        
+
         return () => clearTimeout(timeoutId);
     }, []);
 
     return (
         <div>
-            {/* Social Media Bar */}
+            {/* Social media bar */}
             <article className="flex justify-end gap-4 bg-red w-full h-auto p-2">
                 {SOCIAL_LINKS.map((link, index) => (
                     <SocialLink key={index} {...link} />
                 ))}
             </article>
 
-            {/* Main Header */}
+            {/* Main header */}
             <section className="flex flex-col items-center justify-evenly gap-2 md:flex-row">
                 <article>
                     <Image
@@ -133,7 +134,7 @@ export default function Header() {
                 </article>
 
                 <article className="flex justify-between w-full items-center p-[5%] md:p-0 md:w-auto">
-                    <button onClick={toggleMobileMenu} aria-label="Abrir menú">
+                    <button onClick={toggleMobileMenu} aria-label="Open menu">
                         <Menu className="w-12 h-12 text-black md:hidden" />
                     </button>
 
@@ -145,19 +146,19 @@ export default function Header() {
                 </article>
             </section>
 
-            {/* Mobile Menu Modal */}
+            {/* Mobile menu modal */}
             {isMobileMenuOpen && (
                 <div className={`fixed inset-0 w-full z-50 md:hidden ${isClosing ? 'overlay-exit' : 'overlay-enter'}`}>
                     <div className={`fixed left-0 top-0 h-full w-full bg-white shadow-lg ${isClosing ? 'modal-exit' : 'modal-enter'}`}>
                         <div className="flex justify-between items-center p-4 border-b">
-                            <Image 
-                                src="/images/logo.webp" 
-                                alt="Ingeniería OL Logo" 
-                                width={64} 
-                                height={64} 
-                                className="h-16 w-16" 
+                            <Image
+                                src="/images/logo.webp"
+                                alt="Ingeniería OL Logo"
+                                width={64}
+                                height={64}
+                                className="h-16 w-16"
                             />
-                            <button onClick={closeMobileMenu} aria-label="Cerrar menú">
+                            <button onClick={closeMobileMenu} aria-label="Close menu">
                                 <X className="w-6 h-6 text-gray-600" />
                             </button>
                         </div>
@@ -172,14 +173,14 @@ export default function Header() {
                             </nav>
 
                             <div className="border-t pt-4">
-                                <button 
+                                <button
                                     onClick={toggleServices}
                                     className="w-full flex justify-between font-bold items-center py-2 px-3 color-red text-lg active:bg-gray-100 rounded transition-colors duration-200"
                                 >
                                     Servicios
                                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
                                 </button>
-                                
+
                                 {isServicesOpen && (
                                     <div className="ml-4 mt-2 space-y-2">
                                         {SERVICIOS_BUTTONS.map((service) => (
@@ -193,20 +194,23 @@ export default function Header() {
                 </div>
             )}
 
-            {/* Desktop Navigation */}
+            {/* Desktop navigation */}
             <section className="hidden md:block mb-[3px]">
                 <nav className="w-full h-16 p-2 border-red-black flex justify-center items-center">
                     <ul className="flex justify-evenly items-center w-4/5">
                         {NAV_BUTTONS.map((button) => (
                             <li key={button.name}>
-                                <Link href={button.href} className="color-red font-semibold text-lg hover:text-gray-300 border-b-2 border-transparent hover:border-black pb-1 transition-all duration-300">
+                                <Link
+                                    href={button.href}
+                                    target={button.name === "Catálogo Industrial" ? "_blank" : undefined}
+                                    className="color-red font-semibold text-lg hover:text-gray-300 border-b-2 border-transparent hover:border-black pb-1 transition-all duration-300">
                                     {button.name}
                                 </Link>
                             </li>
                         ))}
-                        
+
                         <li className="relative">
-                            <button 
+                            <button
                                 onClick={toggleServices}
                                 onMouseEnter={() => setIsServicesOpen(true)}
                                 onMouseLeave={() => setIsServicesOpen(false)}
@@ -215,19 +219,18 @@ export default function Header() {
                                 Servicios
                                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
                             </button>
-                            
+
                             {isServicesOpen && (
-                                <div 
+                                <div
                                     onMouseEnter={() => setIsServicesOpen(true)}
                                     onMouseLeave={closeServices}
                                     className="absolute top-full left-0 bg-white border border-gray-200 rounded-md shadow-lg z-50 min-w-48"
                                 >
                                     {SERVICIOS_BUTTONS.map((service) => (
-                                        <Link 
+                                        <Link
                                             key={service.name}
                                             href={service.href}
                                             onClick={closeServices}
-                                            target={service.name === "Catalogo Industrial" ? "_blank" : undefined}
                                             className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-600 transition-colors duration-200"
                                         >
                                             {service.name}

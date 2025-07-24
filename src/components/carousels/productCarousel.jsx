@@ -35,7 +35,7 @@ export default function ProductCarousel() {
                 pagination={{ clickable: true }}
                 loop
                 speed={1800}
-                className="swiper-container"
+                className="swiper-container !py-4 !px-4"
                 autoplay={{
                     delay: 2000,
                     disableOnInteraction: false,
@@ -48,8 +48,8 @@ export default function ProductCarousel() {
                 }}
             >
                 {products.map((product) => (
-                    <SwiperSlide key={product.id}>
-                        <div className="border rounded-md p-12 flex items-center justify-center bg-white">
+                    <SwiperSlide key={product.id} className="!overflow-visible py-4">
+                        <div className="border rounded-md p-12 flex items-center justify-center bg-white shadow-md transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-105">
                             <Image
                                 src={product.src}
                                 alt={product.alt}

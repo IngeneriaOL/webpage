@@ -7,7 +7,7 @@ import { useState, useEffect, useCallback, memo } from "react";
 // Static data outside component
 const NAV_BUTTONS = [
     { name: "Inicio", href: "/" },
-    { name: "Quienes Somos", href: "/about" },
+    { name: "Quiénes Somos", href: "/about" },
     { name: "Nuestras Marcas", href: "/trademarks" },
     { name: "Proyectos", href: "/projects" },
     { name: "Catálogo Industrial", href: "https://www.catalogoindustrial.co/" },

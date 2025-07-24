@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
     return (
         <div className="bg-red flex flex-col items-center justify-center">
-            <section className="flex flex-col items-center justify-center p-4">
+            <section className="flex flex-col items-center justify-center p-4 text-center">
                 <article>
                     <Image
                         src="/images/logo-white.webp"

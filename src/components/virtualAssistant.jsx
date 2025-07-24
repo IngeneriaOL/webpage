@@ -17,6 +17,7 @@ export default function VirtualAssistant() {
                         width={500}
                         height={300}
                         className="h-full w-full object-cover"
+                        priority
                     />
                 </div>
 

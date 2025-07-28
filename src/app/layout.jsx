@@ -9,8 +9,11 @@ const saira = Saira({
 });
 
 export const metadata = {
-  title: "Ingeniería OL",
-  description: "Ingeniería OL - Innovación y Tecnología",
+  title: "Ingeniería OL - Automatización Industrial | Bogotá - Colombia",
+  description:
+    "Mejore la productividad de su empresa con nuestras soluciones de automatización industrial. Distribución de material eléctrico, asesoría técnica y soporte especializado en Bogotá desde 2014.",
+  keywords:
+    "automatización industrial Bogotá, material eléctrico industrial, soluciones industriales Colombia, ingeniería automatización, Autonics Colombia, Siemens distribuidor",
 };
 
 export default function RootLayout({ children }) {

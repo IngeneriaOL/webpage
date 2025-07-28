@@ -11,6 +11,7 @@ import ClientCarousel from "@/components/carousels/clientCarousel";
 import WorkCarousel from "@/components/carousels/workCarousel";
 import Button from "@/components/button";
 import { Clapperboard, Globe } from "lucide-react"
+import { useState } from "react";
 
 const aldrich = Aldrich({
   variable: "--font-aldrich",
@@ -26,6 +27,47 @@ const agdasima = Agdasima({
 });
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+
+  const handleEmailSubmit = (e) => {
+    e.preventDefault();
+
+    if (!email.trim()) {
+      return alert("Por favor ingresa tu correo electrónico");
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return alert("Por favor ingresa un correo electrónico válido");
+    }
+
+    const subject = encodeURIComponent("Consulta desde página web - Ingeniería OL");
+    const body = encodeURIComponent(
+      `Hola,
+
+Me comunico desde su página web para solicitar más información sobre sus servicios de automatización industrial.
+
+Mi correo de contacto es: ${email}
+
+Espero su respuesta.
+
+Saludos cordiales.`
+    );
+
+    const mailtoUrl = `mailto:info@aingenieriaol.com?subject=${subject}&body=${body}`;
+
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      window.location.href = mailtoUrl;
+    } else {
+      const useGmail = confirm("¿Deseas abrir Gmail? (Cancelar para usar tu cliente de correo por defecto)");
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=info@aingenieriaol.com&su=${subject}&body=${body}`;
+      window.open(useGmail ? gmailUrl : mailtoUrl, '_blank');
+    }
+
+    setEmail("");
+  };
 
   const services = [
     { name: "CATÁLOGO INDUSTRIAL", image: "/images/services/catalogo.webp", link: "https://www.catalogoindustrial.co/" },
@@ -66,8 +108,8 @@ export default function Home() {
 
           {/* CONTENT */}
           <article className="flex flex-col items-center gap-4 relative z-20 text-white text-center">
-            <p className="">Automatización de unidad de taladrado de 8 estaciones</p>
-            <p className={`${aldrich.className} text-2xl w-3/5`}>Empresa jafs machines automatización ingenieria ol sas; invertek asi lo dio a conocer en su publicación</p>
+            <h3 className="">Automatización de unidad de taladrado de 8 estaciones</h3>
+            <h2 className={`${aldrich.className} text-2xl w-3/5`}>Empresa jafs machines automatización ingenieria ol sas; invertek asi lo dio a conocer en su publicación</h2>
 
             <Link href={"/"} className="inline-block bg-black px-8 py-3 mt-4 rounded-xl font-bold text-sm border-red hover:bg-[#ED1C24] active:bg-[#ED1C24] transition-all duration-300">
               VER PUBLICACIÓN AQUÍ
@@ -104,8 +146,8 @@ export default function Home() {
         {/* AUTOMATIZATION SECTION */}
         <section className="px-4">
           <article className={`${aldrich.className} flex flex-col items-center text-center mb-10`}>
-            <p className="color-red text-6xl mb-4">Ingeniería OL</p>
-            <p className="text-gray-600">Sistemas automáticos confiables para tu industria.</p>
+            <h1 className="color-red text-6xl mb-4">Ingeniería OL</h1>
+            <h2 className="text-gray-600">Sistemas automáticos confiables para tu industria.</h2>
           </article>
 
           <article className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 max-w-7xl mx-auto">
@@ -145,7 +187,7 @@ export default function Home() {
           </article>
         </section>
 
-        {/* SUSCRIPTION SECTION */}
+        {/* EMAIL SECTION */}
         <section className="my-20 parallax-section relative bg-[url('/images/backgrounds/suscription.webp')] bg-cover bg-center h-screen flex flex-col items-center justify-center text-center gap-10">
           {/* Capa para reducir opacidad de la imagen */}
           <div className="absolute inset-0 bg-white/50 z-5"></div>
@@ -156,16 +198,20 @@ export default function Home() {
           {/* Contenido */}
           <div className="relative z-20 flex flex-col items-center gap-10">
             <p className="font-bold text-white">Ingeniería OL SAS</p>
-            <p className={`font-bold text-4xl w-4/5 text-white ${agdasima.className} md:text-6xl lg:w-3/5`}>Déjanos tu email, suscríbete, estarás al tanto de los nuevos lanzamientos y futuros descuentos exclusivos</p>
+            <p className={`font-bold text-4xl w-4/5 text-white ${agdasima.className} md:text-6xl lg:w-3/5`}>
+              ¿Tienes dudas o quieres más información? Escríbenos desde tu correo electrónico, estaremos encantados de atenderte.
+            </p>
 
-            <article className="flex flex-col w-full items-center justify-center gap-6 md:flex-row md:gap-2">
+            <form onSubmit={handleEmailSubmit} className="flex flex-col w-full items-center justify-center gap-6 md:flex-row md:gap-2">
               <input
                 type="email"
                 name="email"
                 id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
                 autoComplete="email"
-                className="px-4 py-4 w-4/5 text-sm text-gray-400 bg-white focus:outline-none focus:border-transparent md:w-2/5"
+                className="px-4 py-4 w-4/5 text-sm text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent md:w-2/5"
                 placeholder="Ingresa tu correo electrónico"
               />
 
@@ -173,9 +219,9 @@ export default function Home() {
                 type="submit"
                 className="text-sm font-bold py-4 px-8 bg-black text-white hover:bg-gray-600 active:bg-gray-600 transition-all duration-300 md:text-xs lg:text-sm"
               >
-                SUSCRIBIRME
+                ENVIAR
               </button>
-            </article>
+            </form>
           </div>
         </section>
 
@@ -187,8 +233,8 @@ export default function Home() {
               <p>ELÉCTRICOS</p>
             </div>
 
-            <p className={`${aldrich.className} text-3xl my-4 lg:text-5xl`}>Innovación y eficiencia para tus procesos industriales</p>
-            <p className="lg:text-lg">Ingeniería OL; calidad y precisión en cada solución.</p>
+            <h2 className={`${aldrich.className} text-3xl my-4 lg:text-5xl`}>Innovación y eficiencia para tus procesos industriales</h2>
+            <h3 className="lg:text-lg">Ingeniería OL; calidad y precisión en cada solución.</h3>
           </article>
 
           <article className="w-full md:w-1/2 aspect-[3/4] lg:w-2/5">
@@ -199,8 +245,8 @@ export default function Home() {
         {/* BRANDS SECTION */}
         <section className="px-4">
           <article className={`${aldrich.className} flex flex-col items-center text-center mb-10`}>
-            <p className="color-red text-3xl mb-4">NUESTRAS MARCAS</p>
-            <p className="text-gray-600">Marcas aliadas que impulsan la innovación y la calidad.</p>
+            <h2 className="color-red text-3xl mb-4">NUESTRAS MARCAS</h2>
+            <h3 className="text-gray-600">Marcas aliadas que impulsan la innovación y la calidad.</h3>
           </article>
 
           <BrandCarousel />
@@ -214,11 +260,11 @@ export default function Home() {
 
           {/* Contenido */}
           <div className="relative z-20 flex flex-col items-center gap-16 w-full px-8">
-            <p className={`font-bold text-3xl ${aldrich.className} md:text-4xl lg:text-5xl`}>¿Qué dicen nuestros clientes?</p>
+            <h2 className={`font-bold text-3xl ${aldrich.className} md:text-4xl lg:text-5xl`}>¿Qué dicen nuestros clientes?</h2>
 
             <ClientCarousel />
 
-            <p className={`font-bold ${aldrich.className}`}>INGENIERÍA OL SAS</p>
+            <h3 className={`font-bold ${aldrich.className}`}>INGENIERÍA OL SAS</h3>
           </div>
         </section>
 

@@ -11,7 +11,7 @@ const aldrich = Aldrich({
   weight: ["400"],
 });
 
-export default async function Products({ params }) {
+export default async function Product ({ params }) {
   const { id } = await params
 
   const products = [

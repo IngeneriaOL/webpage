@@ -111,7 +111,7 @@ export default function Header() {
 
             {/* Main header */}
             <section className="flex flex-col items-center justify-evenly gap-2 md:flex-row">
-                <article>
+                <Link href="/">
                     <Image
                         src="/images/logo.webp"
                         alt="Ingeniería OL Logo"
@@ -120,7 +120,7 @@ export default function Header() {
                         className="h-full w-auto"
                         priority
                     />
-                </article>
+                </Link>
 
                 <article className="w-[90%] md:w-1/3">
                     <div className="relative flex items-center">

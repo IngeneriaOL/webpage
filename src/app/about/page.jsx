@@ -20,7 +20,7 @@ export default function About() {
       <Header />
 
       <main className="flex flex-col items-center justify-center text-gray-600 px-4 py-10 bg-gray-100">
-        <h2 className={`text-center color-red text-3xl mb-6 ${aldrich.className}`}>QUIÉNES SOMOS</h2>
+        <h2 className={`text-center color-red text-4xl mb-6 ${aldrich.className}`}>QUIÉNES SOMOS</h2>
 
         <p className="max-w-4xl text-center leading-relaxed text-lg">
           Desde 2014, nos posicionamos como líderes en la distribución de material eléctrico industrial,
@@ -59,9 +59,9 @@ export default function About() {
           </div>
         </article>
 
-        <p className={`text-center color-red text-2xl mb-8 mt-4 ${aldrich.className}`}>
+        <h2 className={`text-center color-red text-2xl mb-8 mt-4 ${aldrich.className}`}>
           Valores que impulsan la innovación y la eficiencia industrial
-        </p>
+        </h2>
 
         <article className="flex flex-col p-4 md:flex-row items-start justify-center w-full max-w-6xl gap-8">
           <ul className="flex-1 space-y-4 list-disc font-bold">

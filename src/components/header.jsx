@@ -135,10 +135,10 @@ export default function Header() {
 
                 <article className="flex justify-between w-full items-center p-[5%] md:p-0 md:w-auto">
                     <button onClick={toggleMobileMenu} aria-label="Open menu">
-                        <Menu className="w-12 h-12 text-black md:hidden" />
+                        <Menu className="w-12 h-12 text-gray-600 md:hidden" />
                     </button>
 
-                    <article className="text-black">
+                    <article className="text-gray-600">
                         <p className="flex items-center gap-2"><Check className="font-bold" /> Soporte especializado</p>
                         <p className="flex items-center gap-2"><PhoneCall className="font-bold" /> 3168225865 | 3175731246</p>
                         <p className="flex items-center gap-2"><Mails className="font-bold" /> info@aingenieriaol.com</p>
@@ -203,7 +203,7 @@ export default function Header() {
                                 <Link
                                     href={button.href}
                                     target={button.name === "Catálogo Industrial" ? "_blank" : undefined}
-                                    className="color-red font-semibold text-lg hover:text-gray-300 border-b-2 border-transparent hover:border-black pb-1 transition-all duration-300">
+                                    className="color-red font-semibold text-lg hover:text-gray-300 border-b-2 border-transparent hover:border-gray-600 pb-1 transition-all duration-300">
                                     {button.name}
                                 </Link>
                             </li>
@@ -214,7 +214,7 @@ export default function Header() {
                                 onClick={toggleServices}
                                 onMouseEnter={() => setIsServicesOpen(true)}
                                 onMouseLeave={() => setIsServicesOpen(false)}
-                                className="color-red font-semibold text-lg hover:text-gray-300 border-b-2 border-transparent hover:border-black transition-all duration-300 flex items-center gap-1"
+                                className="color-red font-semibold text-lg hover:text-gray-300 border-b-2 border-transparent hover:border-gray-600 transition-all duration-300 flex items-center gap-1"
                             >
                                 Servicios
                                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />

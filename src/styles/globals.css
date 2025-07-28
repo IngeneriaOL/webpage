@@ -40,7 +40,7 @@ body {
 
 .border-red-black {
   border: 3px solid var(--red);
-  box-shadow: 0 0 0 3px black;
+  box-shadow: 0 0 0 3px #4a5565;
 }
 
 .border-red {

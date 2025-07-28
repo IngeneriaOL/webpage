@@ -105,12 +105,12 @@ export default function Home() {
         <section className="px-4">
           <article className={`${aldrich.className} flex flex-col items-center text-center mb-10`}>
             <p className="color-red text-6xl mb-4">Ingeniería OL</p>
-            <p className="text-black">Sistemas automáticos confiables para tu industria.</p>
+            <p className="text-gray-600">Sistemas automáticos confiables para tu industria.</p>
           </article>
 
           <article className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 max-w-7xl mx-auto">
             {videos.map((video, index) => (
-              <div key={index} className="video-card overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all hover:scale-105 active:shadow-xl flex flex-col">
+              <div key={index} className="video-card overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all hover:scale-105 active:shadow-xl duration-300 ease-in-out flex flex-col">
                 <div className="flex-shrink-0">
                   <video
                     controls
@@ -138,7 +138,7 @@ export default function Home() {
 
                   {/* Contenido */}
                   <Clapperboard className="color-red z-10 relative w-6 h-6 flex-shrink-0" />
-                  <p className="text-black z-10 relative text-xs leading-tight lg:text-sm">{video.title}</p>
+                  <p className="text-gray-600 z-10 relative text-xs leading-tight lg:text-sm">{video.title}</p>
                 </div>
               </div>
             ))}
@@ -181,7 +181,7 @@ export default function Home() {
 
         {/* WORKS SECTION */}
         <section className="mb-20 px-4 md:flex md:flex-row-reverse items-center md:px-[10%] md:gap-10 lg:px-[15%] lg:gap-20">
-          <article className="flex flex-col items-center text-center mb-10 text-black md:mb-0 md:items-start md:text-left">
+          <article className="flex flex-col items-center text-center mb-10 text-gray-600 md:mb-0 md:items-start md:text-left">
             <div className="color-red font-bold flex items-center justify-center gap-2">
               <Globe />
               <p>ELÉCTRICOS</p>
@@ -200,7 +200,7 @@ export default function Home() {
         <section className="px-4">
           <article className={`${aldrich.className} flex flex-col items-center text-center mb-10`}>
             <p className="color-red text-3xl mb-4">NUESTRAS MARCAS</p>
-            <p className="text-black">Marcas aliadas que impulsan la innovación y la calidad.</p>
+            <p className="text-gray-600">Marcas aliadas que impulsan la innovación y la calidad.</p>
           </article>
 
           <BrandCarousel />

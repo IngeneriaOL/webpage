@@ -32,6 +32,7 @@ const Button = memo(({
         font-bold 
         transition-all 
         duration-300 
+        ease-in-out
         hover:scale-105 
         active:scale-95
         focus:outline-none 

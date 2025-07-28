@@ -19,7 +19,7 @@ export default function About() {
       {/* HEADER COMPONENT */}
       <Header />
 
-      <main className="flex flex-col items-center justify-center text-gray-600 px-4 py-10">
+      <main className="flex flex-col items-center justify-center text-gray-600 px-4 py-10 bg-gray-100">
         <h2 className={`text-center color-red text-3xl mb-6 ${aldrich.className}`}>QUIÉNES SOMOS</h2>
 
         <p className="max-w-4xl text-center leading-relaxed text-lg">

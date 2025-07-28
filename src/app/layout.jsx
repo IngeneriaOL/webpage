@@ -1,8 +1,8 @@
-import { Montserrat } from "next/font/google";
+import { Saira } from "next/font/google";
 import "@/styles/globals.css";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const saira = Saira({
+  variable: "--font-saira",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body
-        className={`${montserrat.variable} font-sans antialiased`}
+        className={`${saira.className} antialiased`}
       >
         {children}
       </body>

@@ -9,7 +9,7 @@ import ProductCarousel from "@/components/carousels/productCarousel";
 import BrandCarousel from "@/components/carousels/trademarkCarousel";
 import ClientCarousel from "@/components/carousels/clientCarousel";
 import WorkCarousel from "@/components/carousels/workCarousel";
-import Button from "@/components/ui/button";
+import Button from "@/components/button";
 import { Clapperboard, Globe } from "lucide-react"
 
 const aldrich = Aldrich({

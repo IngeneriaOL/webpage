@@ -2,6 +2,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
+import Link from "next/link";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -49,7 +50,9 @@ export default function ProductCarousel() {
             >
                 {products.map((product) => (
                     <SwiperSlide key={product.id} className="!overflow-visible py-4">
-                        <div className="border rounded-md p-12 flex items-center justify-center bg-white shadow-md transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-105">
+                        <Link
+                            href={`/products/${product.id}`}
+                            className="border rounded-md p-12 flex items-center justify-center bg-white shadow-md transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-1 hover:shadow-xl active:scale-105">
                             <Image
                                 src={product.src}
                                 alt={product.alt}
@@ -57,7 +60,7 @@ export default function ProductCarousel() {
                                 width={1000}
                                 height={1000}
                             />
-                        </div>
+                        </Link>
                     </SwiperSlide>
                 ))}
             </Swiper>

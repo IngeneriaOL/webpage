@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Check, PhoneCall, Mails, Search, Menu, ChevronDown, X } from "lucide-react";
 import { useState, useEffect, useCallback, memo } from "react";
+import SearchModal from "./searchModal";
 
 // Static data outside component
 const NAV_BUTTONS = [
@@ -67,6 +68,7 @@ export default function Header() {
     const [isServicesOpen, setIsServicesOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
+    const [isSearchModalOpen, setIsSearchModalOpen] = useState(false); 
 
     // Prevent body scroll when mobile menu is open
     useEffect(() => {
@@ -100,6 +102,15 @@ export default function Header() {
         return () => clearTimeout(timeoutId);
     }, []);
 
+    // SEARCH MODAL HANDLERS
+    const openSearchModal = useCallback(() => {
+        setIsSearchModalOpen(true);
+    }, []);
+
+    const closeSearchModal = useCallback(() => {
+        setIsSearchModalOpen(false);
+    }, []);
+
     return (
         <div>
             {/* Social media bar */}
@@ -123,11 +134,15 @@ export default function Header() {
                 </Link>
 
                 <article className="w-[90%] md:w-1/3">
-                    <div className="relative flex items-center">
+                    <div 
+                        className="relative flex items-center cursor-pointer"
+                        onClick={openSearchModal}
+                    >
                         <input
                             type="text"
-                            placeholder="Buscar..."
-                            className="pl-10 pr-4 py-2 w-full text-gray-400 border border-gray-300 rounded-sm bg-whitesmoke focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                            placeholder="Buscar productos..."
+                            readOnly
+                            className="pl-10 pr-4 py-2 w-full text-gray-400 border border-gray-300 rounded-sm bg-whitesmoke focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent cursor-pointer"
                         />
                         <Search className="absolute left-3 w-4 text-gray-400 h-4" />
                     </div>
@@ -242,6 +257,12 @@ export default function Header() {
                     </ul>
                 </nav>
             </section>
+
+            {/* SEARCH MODAL */}
+            <SearchModal 
+                isOpen={isSearchModalOpen} 
+                onClose={closeSearchModal} 
+            />
         </div>
     );
 }

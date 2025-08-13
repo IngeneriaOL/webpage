@@ -40,8 +40,8 @@ export default function Products() {
                 <Image
                   src={`/images/products/${product.src}`}
                   alt={product.alt}
-                  width={300}
-                  height={300}
+                  width={1000}
+                  height={1000}
                   className="w-full h-full object-contain"
                 />
               </div>

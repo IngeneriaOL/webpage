@@ -121,8 +121,8 @@ export default function SearchModal({ isOpen, onClose }) {
                       <Image
                         src={`/images/products/${product.src}`}
                         alt={product.alt}
-                        width={64}
-                        height={64}
+                        width={1000}
+                        height={1000}
                         className="w-full h-full object-contain group-hover:scale-105 transition-transform"
                       />
                     </div>

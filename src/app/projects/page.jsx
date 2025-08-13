@@ -40,6 +40,8 @@ export default function Projects() {
                   <Image
                     src={`/images/projects/${project.image}`}
                     alt={project.title}
+                    width={1300}
+                    height={900}
                     fill
                     className="object-cover hover:scale-110 transition-transform duration-300"
                   />

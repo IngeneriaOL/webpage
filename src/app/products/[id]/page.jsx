@@ -60,8 +60,8 @@ export default async function Product ({ params }) {
               <Image
                 src={`/images/products/${product.src}`}
                 alt={product.alt}
-                width={400}
-                height={400}
+                width={1000}
+                height={1000}
                 className="w-full h-full object-contain"
               />
             </div>

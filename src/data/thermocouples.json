@@ -1,0 +1,12 @@
+[
+    { "id": 1, "image": "thermocouple-1.webp", "color":"#ED861C", "name": "Termocuplas tipo K punta expuesta y conector macho miniatura" },
+    { "id": 2, "image": "thermocouple-2.webp", "color":"#ED1C24", "name": "Termocuplas tipo K bulbo en compacto y conector macho miniatura" },
+    { "id": 3, "image": "thermocouple-3.webp", "color":"#55A6D4", "name": "Termoresistencias RTD PT 100 con cabezote de protección GAL y conexión Clamp" },
+    { "id": 4, "image": "thermocouple-4.webp", "color":"#009C8C", "name": "Sensor RTD PT 100 con cabezote a prueba de explosión" },
+    { "id": 5, "image": "thermocouple-5.webp", "color":"#008C45", "name": "Termocuplas tipo J K con transmisor salida de control 4+20 m A" },
+    { "id": 6, "image": "thermocouple-6.webp", "color":"#0064A8", "name": "Sensor RTD PT 100 cable teflón 4 hilos" },
+    { "id": 7, "image": "thermocouple-7.webp", "color":"#8A4D98", "name": "Termocuplas tipo J ángulo de 90° cable Kapton" },
+    { "id": 8, "image": "thermocouple-8.webp", "color":"#ED1C24", "name": "Termocuplas tipo K bulbo de 1/8\" en compacto cable Kapton y conector macho miniatura 600°C" },
+    { "id": 9, "image": "thermocouple-9.webp", "color":"#ED1C24", "name": "Elementos tipo K calibre 8 con aisladores cerámicos de alta Alúmina" },
+    { "id": 10, "image": "thermocouple-10.webp", "color":"#ED1C24", "name": "RTD PT 100 mecanismo Spring Load" }
+]

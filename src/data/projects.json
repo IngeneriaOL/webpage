@@ -1,0 +1,29 @@
+[
+    {
+      "id": 1,
+      "title": "Máquina flejadora industrial",
+      "description": "Modernización completa del sistema de control para máquina flejadora, incorporando tecnología de última generación para mejorar rendimiento, precisión y confiabilidad operacional.",
+      "image": "project-1.webp",
+      "category": "Actualización Tecnológica",
+      "date": "2023",
+      "client": "Yopal - Casanare"
+    },
+    {
+      "id": 2,
+      "title": "Sistema de automatización para bandas transportadoras",
+      "description": "Solución integral de automatización industrial diseñada específicamente para optimizar el manejo y transporte de flores en procesos de cultivo y postcosecha.",
+      "image": "project-2.webp",
+      "category": "Cultivo de Flores",
+      "date": "2024",
+      "client": "Passion Growers"
+    },
+    {
+      "id": 3,
+      "title": "Taladro CNC Horizontal - 8 Estaciones",
+      "description": "Sistema CNC automatizado para taladro horizontal multi-estación, diseñado para operaciones de alta precisión y productividad industrial. Ver más: https://www.youtube.com/watch?v=0Mbedc9wuks",
+      "image": "project-3.webp",
+      "category": "Automatización",
+      "date": "2020",
+      "client": "JAFS MACHINES"
+    }
+]

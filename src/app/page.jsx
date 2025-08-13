@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image";
-import Link from "next/link";
 import { Aldrich, Agdasima } from "next/font/google";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -72,7 +71,7 @@ Saludos cordiales.`
   const services = [
     { name: "CATÁLOGO INDUSTRIAL", image: "/images/services/catalogo.webp", link: "https://www.catalogoindustrial.co/" },
     { name: "PROYECTOS", image: "/images/services/proyectos.webp", link: "/projects" },
-    { name: "TERMOCUPLAS", image: "/images/services/termocuplas.webp", link: "/termocuplas" },
+    { name: "TERMOCUPLAS", image: "/images/services/termocuplas.webp", link: "/thermocouples" },
   ];
 
   const videos = [
@@ -105,16 +104,6 @@ Saludos cordiales.`
             <source src="/videos/banner.webm" type="video/webm" />
             Tu navegador no soporta videos HTML5.
           </video>
-
-          {/* CONTENT */}
-          <article className="flex flex-col items-center gap-4 relative z-20 text-white text-center">
-            <h3 className="">Automatización de unidad de taladrado de 8 estaciones</h3>
-            <h2 className={`${aldrich.className} text-2xl w-3/5`}>Empresa jafs machines automatización ingenieria ol sas; invertek asi lo dio a conocer en su publicación</h2>
-
-            <Link href={"/"} className="inline-block bg-black px-8 py-3 mt-4 rounded-xl font-bold text-sm border-red hover:bg-[#ED1C24] active:bg-[#ED1C24] transition-all duration-300">
-              VER PUBLICACIÓN AQUÍ
-            </Link>
-          </article>
         </section>
 
         {/* SERVICES SECTION */}

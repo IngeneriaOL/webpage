@@ -4,6 +4,7 @@ import VirtualAssistant from "@/components/virtualAssistant";
 import { Aldrich } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import projects from "@/data/projects.json";
 
 const aldrich = Aldrich({
   variable: "--font-aldrich",
@@ -12,35 +13,6 @@ const aldrich = Aldrich({
 });
 
 export default function Projects() {
-  const projects = [
-    {
-      id: 1,
-      title: "Automatización de Línea de Producción",
-      description: "Implementación de sistema de automatización completo para línea de producción en empresa manufacturera, incluyendo control de calidad automatizado y monitoreo en tiempo real.",
-      image: "/images/projects/project-1.webp",
-      category: "Automatización Industrial",
-      date: "2024",
-      client: "Empresa Manufacturera XYZ"
-    },
-    {
-      id: 2,
-      title: "Sistema de Control HVAC",
-      description: "Desarrollo e instalación de sistema de control automático para climatización en complejo industrial, optimizando el consumo energético y manteniendo condiciones óptimas.",
-      image: "/images/projects/project-2.webp",
-      category: "Control Automático",
-      date: "2023",
-      client: "Complejo Industrial ABC"
-    },
-    {
-      id: 3,
-      title: "Modernización de Tableros Eléctricos",
-      description: "Actualización completa de infraestructura eléctrica con tableros inteligentes, mejorando la seguridad y eficiencia energética de la planta industrial.",
-      image: "/images/projects/project-3.webp",
-      category: "Infraestructura Eléctrica",
-      date: "2024",
-      client: "Planta Industrial DEF"
-    }
-  ];
 
   return (
     <div>
@@ -66,7 +38,7 @@ export default function Projects() {
                 {/* Project Image */}
                 <div className="relative aspect-video overflow-hidden">
                   <Image
-                    src={project.image}
+                    src={`/images/projects/${project.image}`}
                     alt={project.title}
                     fill
                     className="object-cover hover:scale-110 transition-transform duration-300"

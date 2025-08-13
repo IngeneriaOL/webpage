@@ -4,6 +4,7 @@ import VirtualAssistant from "@/components/virtualAssistant";
 import { Aldrich } from "next/font/google"
 import Image from "next/image";
 import Link from "next/link";
+import products from "@/data/products";
 
 const aldrich = Aldrich({
   variable: "--font-aldrich",
@@ -12,24 +13,6 @@ const aldrich = Aldrich({
 });
 
 export default function Products() {
-
-  const products = [
-    { id: 1, name: "Producto 1", src: "/images/products/product-1.webp", alt: "Producto 1" },
-    { id: 2, name: "Producto 2", src: "/images/products/product-2.webp", alt: "Producto 2" },
-    { id: 3, name: "Producto 3", src: "/images/products/product-3.webp", alt: "Producto 3" },
-    { id: 4, name: "Producto 4", src: "/images/products/product-4.webp", alt: "Producto 4" },
-    { id: 5, name: "Producto 5", src: "/images/products/product-5.webp", alt: "Producto 5" },
-    { id: 6, name: "Producto 6", src: "/images/products/product-6.webp", alt: "Producto 6" },
-    { id: 7, name: "Producto 7", src: "/images/products/product-7.webp", alt: "Producto 7" },
-    { id: 8, name: "Producto 8", src: "/images/products/product-8.webp", alt: "Producto 8" },
-    { id: 9, name: "Producto 9", src: "/images/products/product-9.webp", alt: "Producto 9" },
-    { id: 10, name: "Producto 10", src: "/images/products/product-10.webp", alt: "Producto 10" },
-    { id: 11, name: "Producto 11", src: "/images/products/product-11.webp", alt: "Producto 11" },
-    { id: 12, name: "Producto 12", src: "/images/products/product-12.webp", alt: "Producto 12" },
-    { id: 13, name: "Producto 13", src: "/images/products/product-13.webp", alt: "Producto 13" },
-    { id: 14, name: "Producto 14", src: "/images/products/product-14.webp", alt: "Producto 14" },
-    { id: 15, name: "Producto 15", src: "/images/products/product-15.webp", alt: "Producto 15" },
-  ];
 
   return (
     <div>
@@ -55,7 +38,7 @@ export default function Products() {
               {/* Image container */}
               <div className="aspect-square p-4 flex items-center justify-center bg-gray-50">
                 <Image
-                  src={product.src}
+                  src={`/images/products/${product.src}`}
                   alt={product.alt}
                   width={300}
                   height={300}

@@ -3,18 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import Image from "next/image";
 import "swiper/css";
-
-const trademarks = [
-    { id: 1, src: "/images/trademarks/trademark-1.webp", alt: "Marca comercial 1" },
-    { id: 2, src: "/images/trademarks/trademark-2.webp", alt: "Marca comercial 2" },
-    { id: 3, src: "/images/trademarks/trademark-3.webp", alt: "Marca comercial 3" },
-    { id: 4, src: "/images/trademarks/trademark-4.webp", alt: "Marca comercial 4" },
-    { id: 5, src: "/images/trademarks/trademark-5.webp", alt: "Marca comercial 5" },
-    { id: 6, src: "/images/trademarks/trademark-6.webp", alt: "Marca comercial 6" },
-    { id: 7, src: "/images/trademarks/trademark-7.webp", alt: "Marca comercial 7" },
-    { id: 8, src: "/images/trademarks/trademark-8.webp", alt: "Marca comercial 8" },
-    { id: 9, src: "/images/trademarks/trademark-9.webp", alt: "Marca comercial 9" },
-];
+import trademarks from "@/data/trademarks";
 
 export default function TrademarkCarousel() {
     return (
@@ -44,7 +33,7 @@ export default function TrademarkCarousel() {
                     <SwiperSlide key={trademark.id} className="flex items-center justify-center">
                         <div className="rounded-md p-6 bg-white border shadow-sm h-32 w-full flex items-center justify-center">
                             <Image
-                                src={trademark.src}
+                                src={`/images/trademarks/${trademark.src}`}
                                 alt={trademark.alt}
                                 className="max-h-20 max-w-40 object-contain"
                                 width={200}

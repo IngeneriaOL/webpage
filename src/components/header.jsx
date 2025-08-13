@@ -20,14 +20,14 @@ const SERVICIOS_BUTTONS = [
 ];
 
 const SOCIAL_LINKS = [
-    { src: "/images/socialmedia/facebook.webp", alt: "Facebook" },
-    { src: "/images/socialmedia/instagram.webp", alt: "Instagram" },
-    { src: "/images/socialmedia/whatsapp.webp", alt: "WhatsApp" },
+    { src: "/images/socialmedia/facebook.webp", alt: "Facebook", href: "https://www.facebook.com/share/1K8G5fWPse/" },
+    { src: "/images/socialmedia/instagram.webp", alt: "Instagram", href: "https://www.instagram.com/ingenieriaol/profilecard/?igsh=MXB5Mm8yd2hzb3hjZA==" },
+    { src: "/images/socialmedia/tiktok.webp", alt: "TikTok", href: "https://www.tiktok.com/@ingenieriaolsas?_t=ZS-8ynoV3HUN52&_r=1" },
 ];
 
 // Optimized social link component
-const SocialLink = memo(({ src, alt }) => (
-    <Link href="/" className="flex items-center justify-center h-full">
+const SocialLink = memo(({ src, alt, href }) => (
+    <Link href={href} target="_blank" className="flex items-center justify-center h-full">
         <Image
             src={src}
             alt={alt}

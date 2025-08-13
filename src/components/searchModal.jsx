@@ -31,6 +31,29 @@ export default function SearchModal({ isOpen, onClose }) {
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    
+    if (isOpen && isMobile) {
+      const scrollY = window.scrollY;
+      
+      // DISABLE SCROLL
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+    
+      return () => {
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isOpen]);
+
   // CLOSE MODAL ON ESCAPE
   useEffect(() => {
     const handleEscape = (e) => {

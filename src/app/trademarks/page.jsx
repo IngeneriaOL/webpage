@@ -28,7 +28,7 @@ export default function Trademarks() {
       <Header />
 
       <main className="flex flex-col items-center justify-center px-4 py-10 text-gray-600 bg-gray-100">
-        <h2 className={`text-center color-red text-4xl mb-8 ${aldrich.className} lg:mb-12`}>NUESTRAS MARCAS</h2>
+        <h1 className={`text-center color-red text-4xl mb-8 ${aldrich.className} lg:mb-12`}>NUESTRAS MARCAS</h1>
 
         <section className="flex flex-col items-center justify-center px-4 gap-8 lg:px-[10%]">
           {trademarks.map((trademark, index) => {
@@ -41,9 +41,9 @@ export default function Trademarks() {
                 className={`flex flex-col justify-center items-center w-full mb-8 text-center gap-4 sm:gap-8 sm:justify-evenly lg:gap-12 ${flexDirection}`}
               >
                 <div className="w-full sm:w-1/2">
-                  <h3 className={`text-5xl font-bold ${jost.className} lg:text-7xl`} style={{ color: trademark.color }}>
+                  <h2 className={`text-5xl font-bold ${jost.className} lg:text-7xl`} style={{ color: trademark.color }}>
                     {trademark.name}
-                  </h3>
+                  </h2>
                   <p className="mt-2 lg:text-lg lg:px-[10%]">{trademark.description}</p>
                 </div>
 

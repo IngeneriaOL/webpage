@@ -36,7 +36,7 @@ export default function Thermocouples() {
       <Header />
 
       <main className="flex flex-col items-center justify-center pt-10 text-gray-600 bg-gray-100">
-        <h2 className={`text-center color-red text-4xl mb-8 ${aldrich.className} lg:mb-12`}>TERMOCUPLAS</h2>
+        <h1 className={`text-center color-red text-4xl mb-8 ${aldrich.className} lg:mb-12`}>TERMOCUPLAS</h1>
 
         <section className="flex flex-col items-center justify-center px-4 mb-12 gap-8 lg:px-[10%] md:flex-row md:justify-evenly">
           <div className="w-3/5 mb-8 sm:w-1/3 md:w-1/4 md:mb-0 lg:w-1/5">
@@ -45,7 +45,7 @@ export default function Thermocouples() {
 
           <article className="flex flex-col text-sm justify-center w-4/5 gap-6 md:w-3/5 md:text-xs md:flex-row">
             <div className="md:w-1/2">
-              <h3 className="font-bold text-lg">Termocuplas:</h3>
+              <h2 className="font-bold text-lg">Termocuplas:</h2>
 
               <p>En A Ingeniería OL, ofrecemos termocuplas para medición precisa de temperatura en aplicaciones industriales. Disponemos de los siguientes tipos:</p>
 

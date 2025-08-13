@@ -23,9 +23,9 @@ export default function Projects() {
       <Header />
 
       <main className="flex flex-col items-center justify-center text-gray-600 px-4 py-10 bg-gray-100 min-h-screen">
-        <h2 className={`text-center color-red text-4xl mb-8 ${aldrich.className} lg:mb-12`}>
+        <h1 className={`text-center color-red text-4xl mb-8 ${aldrich.className} lg:mb-12`}>
           NUESTROS PROYECTOS
-        </h2>
+        </h1>
 
         {/* Projects Grid */}
         <section className="w-full max-w-7xl">
@@ -79,9 +79,9 @@ export default function Projects() {
 
         <section className="w-full max-w-4xl mt-16 text-center">
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <h3 className={`text-2xl font-bold color-red mb-4 ${aldrich.className}`}>
+            <h2 className={`text-2xl font-bold color-red mb-4 ${aldrich.className}`}>
               ¿Tienes un proyecto en mente?
-            </h3>
+            </h2>
             <p className="text-gray-600 mb-6">
               Contáctanos para desarrollar soluciones personalizadas que impulsen la eficiencia de tu empresa.
             </p>

@@ -23,9 +23,9 @@ export default function Products() {
       <Header />
 
       <main className="flex flex-col items-center justify-center px-4 py-10 text-gray-600 bg-gray-100 min-h-screen">
-        <h2 className={`text-center color-red text-4xl mb-8 ${aldrich.className} lg:mb-12`}>
+        <h1 className={`text-center color-red text-4xl mb-8 ${aldrich.className} lg:mb-12`}>
           NUESTROS PRODUCTOS
-        </h2>
+        </h1>
 
         {/* PRODUCTS SECTION */}
         <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6 max-w-7xl w-full">

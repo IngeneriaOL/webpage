@@ -51,7 +51,7 @@ export default async function Product ({ params }) {
       <Header />
 
       <main className="flex flex-col items-center justify-center px-4 py-10 text-gray-600 bg-gray-100">
-        <h2 className={`text-center color-red text-4xl mb-8 ${aldrich.className} lg:mb-12`}>{product.name}</h2>
+        <h1 className={`text-center color-red text-4xl mb-8 ${aldrich.className} lg:mb-12`}>{product.name}</h1>
 
         <section className="w-full max-w-4xl bg-white rounded-lg shadow-lg p-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

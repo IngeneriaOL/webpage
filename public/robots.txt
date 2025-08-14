@@ -9,4 +9,3 @@ Host: https://www.aingenieriaol.com
 
 # Sitemaps
 Sitemap: https://www.aingenieriaol.com/sitemap.xml
-Sitemap: https://www.aingenieriaol.com/server-sitemap.xml

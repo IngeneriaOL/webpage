@@ -18,7 +18,6 @@ module.exports = {
         ],
         additionalSitemaps: [
             'https://www.aingenieriaol.com/sitemap.xml',
-            'https://www.aingenieriaol.com/server-sitemap.xml'
         ]
     },
 

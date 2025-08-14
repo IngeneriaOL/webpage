@@ -5,7 +5,7 @@ Disallow: /admin
 Disallow: /private
 
 # Host
-Host: https://www.aingenieriaol.com
+Host: https://aingenieriaol.com
 
 # Sitemaps
-Sitemap: https://www.aingenieriaol.com/sitemap.xml
+Sitemap: https://aingenieriaol.com/sitemap.xml

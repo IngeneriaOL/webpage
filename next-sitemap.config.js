@@ -1,7 +1,7 @@
 // next-sitemap.config.js
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: 'https://www.aingenieriaol.com',
+    siteUrl: process.env.SITE_URL || 'https://aingenieriaol.com',
     generateRobotsTxt: true,
     sitemapSize: 7000,
     changefreq: 'weekly',
@@ -17,7 +17,6 @@ module.exports = {
             }
         ],
         additionalSitemaps: [
-            'https://www.aingenieriaol.com/sitemap.xml',
         ]
     },
 
